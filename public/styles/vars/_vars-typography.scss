@@ -1,0 +1,49 @@
+// Fonts
+
+@font-face {
+    font-family: 'DragonHunter';
+    src: url('/public/fonts/DragonHunter/DragonHunter.otf');
+}
+
+@font-face {
+    font-family: 'Vecna';
+    src: url('/public/fonts/Vecna/Vecna-oppx.ttf');
+}
+
+@font-face {
+    font-family: 'Vecna Bold';
+    src: url('/public/fonts/Vecna/VecnaBold-4YY4.ttf');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Vecna Italic';
+    src: url('/public/fonts/Vecna/VecnaItalic-e44p.ttf');
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Vecna Bold Italic';
+    src: url('/public/fonts/Vecna/VecnaBoldItalic-011d.ttf');
+    font-weight: bold;
+    font-style: italic;
+}
+
+//Font Sizes
+
+$font-size-xs-sm: 12px;
+$font-size-sm: 14px;
+$font-size: 16px;
+$font-size-md: 18px;
+$font-size-md-xl: 20px;
+$font-size-md-xxl: 24px;
+$font-size-lg: 30px;
+$font-size-xl-lg: 36px;
+$font-size-xxl-lg: 40px;
+
+//Font Weights
+
+$f-weight-light: 300;
+$f-weight-normal: 400;
+$f-weight-semibold: 500;
+$f-weight-bold: 700;

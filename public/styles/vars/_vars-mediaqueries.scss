@@ -1,0 +1,19 @@
+$mobile-sm: 480px;
+$mobile: 640px;
+$tablet-portrait: 768px;
+$tablet-landscape: 992px;
+$desktop: 1200px;
+$desktop-lg: 1400px;
+
+$desktop-min: '(min-width: {{$desktop}})';
+$tablet-landscape-min: '(min-width: {{$tablet-landscape}})';
+$tablet-portrait-min: '(min-width: {{$tablet-portrait}})';
+$mobile-min: '(min-width: {{$mobile}})';
+$mobile-sm-min: '(min-width: {{$mobile-sm}})';
+
+$until-desktop-lg: '(max-width: {{$desktop-lg}})';
+$until-desktop: '(max-width: {{$desktop}})';
+$until-tablet-landscape: '(max-width: {{$tablet-landscape}})';
+$until-tablet-portrait: '(max-width: {{$tablet-portrait}})';
+$until-mobile: '(max-width: {{$mobile}})';
+$until-mobile-sm: '(max-width: {{$mobile-sm}})';

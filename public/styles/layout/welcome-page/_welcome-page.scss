@@ -1,0 +1,32 @@
+.home-page {
+    min-width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    background: url(/public/img/dnd-home-background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.welcome-header_wrap {
+    width: 100%;
+    height: calculateRem(100px);
+}
+
+.welcome-header_inner {
+    width: 100%;
+    height: 100%;
+    padding: calculateRem(5px) calculateRem(16px);
+    box-sizing: border-box;
+    background-color: $c-secondary;
+}
+
+.header_content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.header_logo {
+    padding: 0 calculateRem(30px);
+}

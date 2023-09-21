@@ -1,0 +1,7 @@
+@function calculateRem($target) {
+    $result: 1;
+    $base: 16px;
+    
+    $result: $target / $base;
+    @return #{$result}rem;
+}

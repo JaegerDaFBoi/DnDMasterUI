@@ -3,9 +3,7 @@
 @import './vars/vars-colors';
 @import './vars/vars-typography';
 @import './vars/vars-mediaqueries';
+@import './vars/vars';
+@import './layout/grid';
+@import './utils/helpers';
 
-.title {
-    color: red;
-    font-family: 'Vecna';
-    font-size: $font-size-md-xxl;
-}

@@ -1,0 +1,69 @@
+.home-page {
+    min-width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    background: url(/public/assets/img/dnd-home-background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.welcome-header_wrap {
+    width: 100%;
+    height: calculateRem(100px);
+}
+
+.welcome-header_inner {
+    width: 100%;
+    height: 100%;
+    padding: calculateRem(5px) calculateRem(16px);
+    box-sizing: border-box;
+    background-color: rgba($c-secondary, 0.8);
+    border: 3px solid #333333;
+    border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px 10px;
+}
+
+.welcome-header_content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.welcome-header_logo {
+    padding: 0 calculateRem(30px);
+    flex: 1 1 20%;
+    height: inherit;
+}
+
+.welcome-header_title {
+    flex: 1 1 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    h1 {
+        font-size: 90px;
+        font-weight: $f-weight-bold;
+        font-family: 'Vecna';
+        margin: 0 auto;
+        background: $c-color-3;
+        background: -webkit-linear-gradient(0deg, $c-color-3 0%, $c-primary 0%, $c-color-3 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
+
+.welcome-content_wrap {
+    width: 100%;
+    height: 100vh;
+}
+
+.welcome-content_inner {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+

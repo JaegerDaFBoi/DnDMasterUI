@@ -43,13 +43,16 @@
     height: 100%;
     display: flex;
     align-items: center;
-    color: $c-primary;
 
     h1 {
         font-size: 90px;
         font-weight: $f-weight-bold;
         font-family: 'Vecna';
         margin: 0 auto;
+        background: $c-color-3;
+        background: -webkit-linear-gradient(0deg, $c-color-3 0%, $c-primary 0%, $c-color-3 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 }
 

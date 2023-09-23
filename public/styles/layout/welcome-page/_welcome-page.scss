@@ -31,6 +31,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-sizing: border-box;
 }
 
 .welcome-header_logo {
@@ -177,10 +178,55 @@
             height: 100%;
             display: block;
             margin-left: calculateRem(15px);
+            text-align: left;
         }
        
     }
 }
 
+@media (max-width: $tablet-landscape) {
+    .welcome-header_logo {
+        display: none;
+    }
+    .welcome-header_title {
+        flex: none;
+        width: 100%;
+         h1 {
+            text-align: center;
+            font-size: calculateRem(70px);
+         }
+    }
+}
+
+@media (max-width: $tablet-portrait) {
+    .welcome-content-image {
+        transform: scale(0.4);
+        bottom: 38%;
+        animation: none;
+        background-size: contain;
+    }
+    .welcome-content_options_inner {
+        margin-top: calculateRem(154px);
+    }
+    .welcome-content_options {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: $mobile) {
+    .welcome-header_title {
+        h1 {
+            font-size: calculateRem(54px);
+        }
+    }
+
+    .welcome-content_options {
+        width: 100%;
+        .welcome-content_options_list {
+            padding: 0;
+        }
+    }
+}
 
 

@@ -2,7 +2,7 @@
     min-width: 100%;
     height: 100vh;
     box-sizing: border-box;
-    background: url(/public/assets/img/dnd-home-background.jpg);
+    background: url(/public/assets/img/dnd-home-background2.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     overflow: hidden;
@@ -10,7 +10,8 @@
 
 .welcome-header_wrap {
     width: 100%;
-    height: calculateRem(100px);
+    height: fit-content;
+    min-height: calculateRem(100px);
 }
 
 .welcome-header_inner {
@@ -35,7 +36,7 @@
 .welcome-header_logo {
     padding: 0 calculateRem(30px);
     flex: 1 1 20%;
-    height: inherit;
+    max-height: calculateRem(100px);
 }
 
 .welcome-header_title {
@@ -45,7 +46,7 @@
     align-items: center;
 
     h1 {
-        font-size: 90px;
+        font-size: calculateRem(90px);
         font-weight: $f-weight-bold;
         font-family: 'Vecna';
         margin: 0 auto;
@@ -58,12 +59,128 @@
 
 .welcome-content_wrap {
     width: 100%;
-    height: 100vh;
+    height: auto;
+    min-height: 100%;
 }
 
 .welcome-content_inner {
     width: 100%;
-    height: 100%;
+    height: 100vh;
+    padding: calculateRem(20px) 0;
     box-sizing: border-box;
 }
+
+.welcome-content {
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.welcome-content-image {
+    width: 100%;
+    height: 100%;
+    background-image: url(/public/assets/img/dnd-home-image.png);
+    background-repeat: no-repeat;
+    background-position: right 100% bottom 15%;
+    position: absolute;
+    animation-duration: 3s;
+    animation-delay: 1s;
+    animation-name: slideup;
+}
+
+@keyframes slideup {
+    from {
+        top: 50%
+    }
+    to {
+        top: 0;
+    }
+}
+.welcome-content_options {
+    position: relative;
+    width: 40%;
+}
+
+.welcome-content_options_inner {
+    width: 100%;
+    height: auto;
+    padding: calculateRem(25px);
+    margin-top: calculateRem(60px);
+    color: $c-color-2;
+    background-color: rgba($c-tertiary, 0.9);
+    border: 3px solid $c-color-1;
+    border-radius: 16px;
+    box-sizing: border-box;
+}
+
+.welcome-content_options_header {
+    width: 100%;
+    height: auto;
+    margin-bottom: calculateRem(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .options_header_content {
+        font-family: 'Vecna';
+        font-size: $font-size-md-xxl;
+        font-weight: bold;
+        font-style: italic;
+    }
+}
+
+.welcome-content_options_list {
+    margin: calculateRem(10px) 0;
+    padding: 0 calculateRem(20px);
+}
+
+.welcome-content_options_list-item {
+    width: 100%;
+    height: auto;
+    min-height: calculateRem(50px);
+    margin: 10px 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    box-sizing: border-box;
+    border: 2px solid $c-color-3;
+    border-radius: 16px;
+    cursor: pointer;
+    background: linear-gradient(163deg, rgba(38,57,77,1) 0%, rgba(38,57,77,1) 56%, rgba(255,254,189,1) 100%);
+    &:first-child {
+        margin-top: 0;
+    }
+    a {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding: 0 calculateRem(20px);
+        text-decoration: none;
+        outline: none;
+    }
+    .options_list-item_content {
+        display: inline-flex;
+        align-items: center;
+        font-size: $font-size-md;
+        font-weight: $f-weight-semibold;
+        font-family: 'DragonHunter';
+        color: $c-secondary;
+        img {
+            width: calculateRem(25px);
+            height: calculateRem(25px);
+            color: #FFF;
+        }
+        .list-item_label {
+            width: 100%;
+            height: 100%;
+            display: block;
+            margin-left: calculateRem(15px);
+        }
+       
+    }
+}
+
+
 

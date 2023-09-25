@@ -5,8 +5,12 @@
 @import './vars/vars-mediaqueries';
 @import './vars/vars';
 @import './layout/grid';
+@import './utils/mixins';
 @import './utils/helpers';
 @import './utils/reset';
 
 //Welcome Page
 @import './layout/welcome-page/welcome-page';
+
+//Character Creation
+@import './modules/character-creation/character_creation_layout';

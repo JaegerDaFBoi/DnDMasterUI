@@ -46,7 +46,7 @@
                                     <div class="welcome-content_options_list">
                                         <div class="group_options">
                                             <button class="welcome-content_options_list-item">
-                                                <a href="#">
+                                                <a href="{{ url('/character-workshop') }}">
                                                     <div class="options_list-item_content">
                                                         <img src="{{ asset('assets/icons/dungeons-and-dragons-icon.svg') }}" alt="">
                                                         <span class="list-item_label">Character Creation</span>
@@ -54,7 +54,7 @@
                                                 </a>
                                             </button>
                                             <button class="welcome-content_options_list-item">
-                                                <a href="#">
+                                                <a href="">
                                                     <div class="options_list-item_content">
                                                         <img src="{{ asset('assets/icons/hammer-icon.svg') }}" alt="">
                                                         <span class="list-item_label">Workshop</span>

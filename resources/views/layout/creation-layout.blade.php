@@ -26,12 +26,57 @@
                     </a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block home-link">
-                    <a href="index3.html" class="nav-link">Home</a>
+                    <a href="{{ url('/') }}" class="nav-link">Home</a>
                 </li>
             </ul>
+            <div class="container justify-content-center">
+                <div class="character-creation_header_title">
+                    <h1>Character Creation</h1>
+                </div>
+            </div>
         </nav>
         <aside class="main-sidebar character-creation_sidebar elevation-4">
-
+            <a href="" class="brand-link">
+                <img src="{{ asset('assets/img/Dungeons-and-Dragons-Logo.png') }}" alt="Dungeons Logo" class="brand-image img-circle elevation-3 sidebar-dungeons_logo">
+            </a>
+            <div class="sidebar">
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column character-creation_options-list" data-widget="treeview" role="menu" data-accordion="false">
+                        <li class="nav-item character-creation_option">
+                            <a href="" class="nav-link">
+                                <i class="nav-icon fas fa-user-shield"></i>
+                                <p>
+                                    Lista de Razas
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item character-creation_option">
+                            <a href="" class="nav-link">
+                                <i class="nav-icon fas fa-hat-wizard"></i>
+                                <p>
+                                    Lista de Clases
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item character-creation_option">
+                            <a href="" class="nav-link">
+                                <i class="nav-icon fas fa-scroll"></i>
+                                <p>
+                                    Lista de personajes
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item character-creation_option">
+                            <a href="" class="nav-link">
+                                <i class="nav-icon fas fa-dungeon"></i>
+                                <p>
+                                    Armas y armaduras
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </aside>
     </div>
 

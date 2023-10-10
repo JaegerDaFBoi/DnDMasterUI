@@ -184,9 +184,15 @@
                                 <span class="added-traits_label">Rasgos agregados</span>
                                 <ul class="added-traits_list">
                                     @foreach ($traits as $index => $trait) 
-                                        <li>
-                                            <span>{{ $trait['title'] }}</span>
-                                            <span>{{ $trait['description'] }}</span>
+                                        <li class="added-traits_list_item">
+                                            <div class="trait-list_item_container">
+                                                <span class="trait-list_item_title">{{ $trait['title'] }}</span>
+                                                <button class="btn btn-sm trait_info-button">
+                                                    <span class="button_icon">
+                                                        <i class="fas fa-search"></i>
+                                                    </span>
+                                                </button>
+                                            </div>
                                             <button class="btn btn-sm trait_remove-button" wire:click='removeTrait({{ $index }})'>
                                                 <span class="button_icon">
                                                     <i class="fas fa-minus"></i>

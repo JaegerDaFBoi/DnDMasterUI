@@ -10,3 +10,28 @@
         }
     }
 }
+.action_buttons {
+    max-width: 100%;
+    height: auto;
+    min-height: calculateRem(150px);
+    padding: calculateRem(16px);
+}
+
+.action_buttons_wrap {
+    width: 100%;
+    height: auto;
+    min-height: inherit;
+}
+
+.action_buttons_inner {
+    height: auto;
+    padding: calculateRem(14px);
+}
+
+.action_button_container {
+    margin: 10px;
+    box-sizing: border-box;
+    .btn {
+        width: 100%;
+    }
+}

@@ -7,7 +7,7 @@
                 <h1 class="creation-center_title_text">Creation Center</h1>
             </div>
         </div>
-
+        @livewire('character-creation.creation-center')
     </div>
 </section>
 @endsection

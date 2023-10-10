@@ -6,6 +6,9 @@
                     <h1 class="creation-center_form_title">Agregar Raza</h1>
                 </div>
                 <div class="card-body">
+                    @if ($error_message)
+                        {{ $error_message }}
+                    @endif
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -70,7 +73,7 @@
                                 <div class="language_input">
                                     <input type="text" class="form-control form-control-border" name="language"
                                         id="language" wire:model='language_input'>
-                                    <button class="btn btn-info language_add-button">
+                                    <button class="btn language_add-button" wire:click='addLanguage'>
                                         <span class="form_button_label">Agregar</span>
                                         <i class="fas fa-plus"></i>
                                     </button>
@@ -83,10 +86,15 @@
                                     Idiomas agregados
                                 </span>
                                 <ul class="added-languages_list">
-                                    @foreach ($languages as $language)
-                                        <li class="added-languages_list_item">
-                                            <span>{{ $language }}</span>
-                                        </li>
+                                    @foreach ($languages as $index => $language)
+                                    <li class="added-languages_list_item">
+                                        <span>{{ $language }}</span>
+                                        <button class="btn btn-sm language_remove-button" wire:click='removeLanguage({{ $index }})'>
+                                            <span class="button_icon">
+                                                <i class="fas fa-minus"></i>
+                                            </span>
+                                        </button>
+                                    </li>
                                     @endforeach
                                 </ul>
                             </div>
@@ -166,7 +174,7 @@
                                 <textarea class="form-control form-control-border" name="trait_description" id="trait_description" cols="8"
                                     rows="5" wire:model='trait_description'></textarea>
                             </div>
-                            <button class="btn add-trait_button">
+                            <button class="btn add-trait_button" wire:click='addTrait'>
                                 <span class="form_button_label">Agregar</span>
                                 <i class="fas fa-plus"></i>
                             </button>
@@ -175,7 +183,17 @@
                             <div class="added-traits_container">
                                 <span class="added-traits_label">Rasgos agregados</span>
                                 <ul class="added-traits_list">
-
+                                    @foreach ($traits as $index => $trait) 
+                                        <li>
+                                            <span>{{ $trait['title'] }}</span>
+                                            <span>{{ $trait['description'] }}</span>
+                                            <button class="btn btn-sm trait_remove-button" wire:click='removeTrait({{ $index }})'>
+                                                <span class="button_icon">
+                                                    <i class="fas fa-minus"></i>
+                                                </span>
+                                            </button>
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>

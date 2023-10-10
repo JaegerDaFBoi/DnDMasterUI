@@ -22,6 +22,36 @@ class RaceCreationForm extends Component
     public $trait_title;
     public $trait_description;
     public $traits = [];
+
+    public $error_message;
+
+    public function addLanguage() {
+        if (!is_null($this->language_input)) {
+            if (strlen($this->language_input) > 4) {
+                $this->languages[] = $this->language_input;
+                
+                $this->reset('language_input', 'error_message');
+            } else {
+                $this->error_message = 'El lenguaje debe tener minimo 5 caracteres';
+            }
+        } else {
+            $this->error_message = 'El lenguaje no puede estar vacio';
+        }
+    }
+
+    public function removeLanguage($index) {
+        unset($this->languages[$index]);
+    }
+
+    public function addTrait() {
+        array_push($this->traits, ['title' => $this->trait_title, 'description' => $this->trait_description]); 
+        
+        $this->reset('trait_title', 'trait_description');
+    }
+
+    public function removeTrait($index) {
+        unset($this->traits[$index]);
+    }
     
     public function render()
     {

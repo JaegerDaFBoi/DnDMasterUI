@@ -3,7 +3,7 @@
     <div class="container-fluid">
         @switch($activeForm)
             @case('race')
-            
+            @livewire('character-creation.race-form.race-creation-form')
             @break
 
             @case('class')

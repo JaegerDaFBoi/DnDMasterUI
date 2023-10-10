@@ -7,13 +7,13 @@
                         <div class="action_buttons_wrap">
                             <div class="card action_buttons_inner">
                                 <div class="action_button_container">
-                                    <button class="btn btn-info" wire:click="showForm('race')">
-                                            Add Race
+                                    <button class="btn action_button" wire:click="showForm('race')">
+                                            Crear Raza
                                     </button>
                                 </div>
                                 <div class="action_button_container">
-                                    <button class="btn btn-info" wire:click="showForm('class')">
-                                            Add Class
+                                    <button class="btn action_button" wire:click="showForm('class')">
+                                            Crear Clase
                                     </button>
                                 </div>
                             </div>
@@ -25,13 +25,13 @@
                         <div class="action_buttons_wrap">
                             <div class="card action_buttons_inner">
                                 <div class="action_button_container">
-                                    <button class="btn btn-info" wire:click="showForm('character')">
-                                        Add Character
+                                    <button class="btn action_button" wire:click="showForm('character')">
+                                        Crear Personaje
                                     </button>
                                 </div>
                                 <div class="action_button_container">
-                                    <button class="btn btn-info" wire:click="showForm('equipment')">
-                                            Add Equipment
+                                    <button class="btn action_button" wire:click="showForm('equipment')">
+                                            Crear Equipamiento
                                     </button>
                                 </div>
                             </div>

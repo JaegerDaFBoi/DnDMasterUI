@@ -17,5 +17,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/character-workshop', function () {
-    return view('layout.creation-layout');
+    return view('character-creation.character-creation-main');
 });

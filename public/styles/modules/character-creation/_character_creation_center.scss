@@ -1,0 +1,12 @@
+.creation-center_title {
+    color: #930C10;
+}
+
+.content-header {
+    h1 {
+        &.creation-center_title_text {
+            margin: 0 auto;
+            width: fit-content;
+        }
+    }
+}

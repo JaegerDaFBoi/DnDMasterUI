@@ -1,0 +1,180 @@
+.creation-center_title {
+    color: #930c10;
+}
+
+.content-header {
+    h1 {
+        &.creation-center_title_text {
+            margin: 0 auto;
+            width: fit-content;
+        }
+    }
+}
+.action_buttons {
+    max-width: 100%;
+    height: auto;
+    min-height: calculateRem(150px);
+    padding: calculateRem(16px);
+}
+
+.action_buttons_wrap {
+    width: 100%;
+    height: auto;
+    min-height: inherit;
+}
+
+.action_buttons_inner {
+    @include decorative-border;
+    height: auto;
+    padding: calculateRem(14px);
+    background-color: $buttons-cards-background-color;
+}
+
+.action_button_container {
+    margin: 10px;
+    box-sizing: border-box;
+    .btn {
+        width: 100%;
+    }
+    .action_button {
+        background-color: $c-color-3;
+        color: $c-color-2;
+        &:hover {
+            background-color: $c-color-1;
+        }
+    }
+}
+
+.creation-center_form {
+    @include decorative-border($c-primary);
+    background-color: $form-cards-background-color;
+}
+
+.creation-center_form_title {
+    text-align: center;
+    color: $c-color-3;
+}
+
+.language_input {
+    display: flex;
+
+    input {
+        width: 60%;
+    }
+
+    .language_add-button {
+        margin: 0 calculateRem(20px);
+    }
+}
+
+.language_add-button,
+.language_remove-button {
+    background-color: $c-primary;
+    border-color: $c-primary;
+    color: #fff;
+    &:hover {
+        background-color: $c-color-1;
+        color: #fff;
+    }
+    &:active {
+        background-color: $c-color-3;
+    }
+}
+
+.added-languages_container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+    .added-languages_label {
+        font-weight: 700;
+    }
+    .added-languages_list {
+        @include decorative-border($c-secondary);
+        width: 100%;
+        min-height: calculateRem(38px);
+        padding: calculateRem(10px);
+        background-color: $c-color-3;
+    }
+    .added-languages_list_item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: $c-color-2;
+        font-family: "Vecna Italic";
+        font-size: $font-size-md-xl;
+        margin: 10px 0;
+        &:first-child {
+            margin-top: 0;
+        }
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.score-increase_title,
+.traits_title {
+    margin: calculateRem(15px) 0;
+    font-weight: 700;
+}
+
+.add-trait_button,
+.trait_remove-button,
+.trait_info-button {
+    background-color: $c-primary;
+    border-color: $c-primary;
+    color: #fff;
+    &:hover {
+        background-color: $c-color-1;
+        color: #fff;
+    }
+    &:active {
+        background-color: $c-color-3;
+    }
+}
+
+.added-traits_container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+    .added-traits_label {
+        font-weight: 700;
+    }
+    .added-traits_list {
+        @include decorative-border($c-secondary);
+        width: 100%;
+        min-height: calculateRem(38px);
+        padding: calculateRem(10px);
+        background-color: $c-color-3;
+    }
+    .added-traits_list_item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: $c-color-2;
+        font-family: "Vecna Italic";
+        font-size: $font-size-md-xl;
+        margin: 10px 0;
+        &:first-child {
+            margin-top: 0;
+        }
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    .trait-list_item_title {
+        margin-right: calculateRem(10px);
+    }
+}
+
+.trait-description_container {
+    @include decorative-border($c-color-3);
+    width: 100%;
+    height: auto;
+    padding: calculateRem(10px);
+    background-color: $c-color-2;
+    color: $c-color-1;
+    font-family: 'Vecna Bold';
+}

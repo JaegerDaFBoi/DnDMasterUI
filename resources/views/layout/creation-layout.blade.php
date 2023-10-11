@@ -78,6 +78,9 @@
                 </nav>
             </div>
         </aside>
+        <div class="content-wrapper">
+            @yield('character-content')
+        </div>
     </div>
 
     @livewireScripts

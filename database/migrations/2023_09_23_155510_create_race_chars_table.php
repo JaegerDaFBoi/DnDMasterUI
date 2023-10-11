@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('race_chars', function (Blueprint $table) {
             $table->id('race_chars_id');
-            $table->enum('size', ['Tiny', 'Small', 'Medium or Small', 'Medium', 'Large', 'Huge', 'Gargantuan']);
+            $table->string('size');
             $table->integer('walk_speed');
             $table->integer('swim_speed')->nullable();
             $table->integer('fly_speed')->nullable();

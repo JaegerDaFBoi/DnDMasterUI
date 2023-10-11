@@ -182,12 +182,12 @@
                         <div class="col-md-6">
                             <div class="added-traits_container">
                                 <span class="added-traits_label">Rasgos agregados</span>
-                                <ul class="added-traits_list">
+                                <ul class="added-traits_list accordion" id="traitsAccordion">
                                     @foreach ($traits as $index => $trait) 
                                         <li class="added-traits_list_item">
                                             <div class="trait-list_item_container">
-                                                <span class="trait-list_item_title">{{ $trait['title'] }}</span>
-                                                <button class="btn btn-sm trait_info-button">
+                                                <span class="trait-list_item_title" id="traitItem{{ $index }}">{{ $trait['title'] }}</span>
+                                                <button class="btn btn-sm trait_info-button" type="button" data-toggle="collapse" data-target="#collapse{{ $index }}" aria-expanded="true" aria-controls="collapse{{ $index }}">
                                                     <span class="button_icon">
                                                         <i class="fas fa-search"></i>
                                                     </span>
@@ -199,6 +199,9 @@
                                                 </span>
                                             </button>
                                         </li>
+                                        <div id="collapse{{ $index }}" class="collapse trait-description_container" aria-labelledby="traitItem{{ $index }}" data-parent="#traitsAccordion">
+                                            <span>{{ $trait['description'] }}</span>
+                                        </div>
                                     @endforeach
                                 </ul>
                             </div>

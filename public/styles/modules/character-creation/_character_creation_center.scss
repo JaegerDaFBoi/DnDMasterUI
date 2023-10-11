@@ -168,3 +168,13 @@
         margin-right: calculateRem(10px);
     }
 }
+
+.trait-description_container {
+    @include decorative-border($c-color-3);
+    width: 100%;
+    height: auto;
+    padding: calculateRem(10px);
+    background-color: $c-color-2;
+    color: $c-color-1;
+    font-family: 'Vecna Bold';
+}

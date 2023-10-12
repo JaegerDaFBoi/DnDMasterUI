@@ -284,7 +284,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h5>Idiomas</h5>
-                            <ul>
+                            <ul class="summary_language_list">
                                 @foreach ($languages as $language)
                                     <li>
                                         <p>{{ $language }}</p>
@@ -296,13 +296,32 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h5>Rasgos</h5>
-                            <ul>
+                            <ul id="traitsSummaryAccordion" class="summary_traits_list">
                                 @foreach ($traits as $index => $trait)
-                                <li>
-                                    <p>{{ $trait['title'] }}</p>
-                                    <p>{{ $trait['description'] }}</p>
-                                </li>
-                            @endforeach
+                                    <li class="added-traits_list_item">
+                                        <div class="trait-list_item_container card">
+                                            <div class="card-header">
+                                                <button class="btn trait_info_summary-button" type="button"
+                                                    data-toggle="collapse" data-target="#collapsetraitsummary{{ $index }}"
+                                                    aria-expanded="true" aria-controls="collapsetraitsummary{{ $index }}">
+                                                    <span class="trait-list_item_title"
+                                                        id="traitItem{{ $index }}">{{ $trait['title'] }}</span>
+                                                        <div class="accordion_icon_container">
+                                                            <span class="accordion_icon"></span>
+                                                        </div>
+                                                </button>
+                                            </div>
+                                            <div id="collapsetraitsummary{{ $index }}"
+                                                class="collapse trait-description_container"
+                                                aria-labelledby="traitItem{{ $index }}"
+                                                data-parent="#traitsSummaryAccordion">
+                                                <div class="card-body">
+                                                    <span>{{ $trait['description'] }}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -334,8 +353,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-save-race">Guardar</button>
                 </div>
             </div>
         </div>

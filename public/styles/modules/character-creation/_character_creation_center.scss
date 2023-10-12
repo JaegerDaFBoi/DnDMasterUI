@@ -121,7 +121,8 @@
 
 .add-trait_button,
 .trait_remove-button,
-.trait_info-button {
+.trait_info-button,
+.btn-save-race {
     background-color: $c-primary;
     border-color: $c-primary;
     color: #fff;
@@ -218,8 +219,50 @@
                 color: $c-color-3;
             }
             p {
+                margin-top: calculateRem(10px);
                 font-size: $font-size-md;
                 color: $c-color-1;
+            }
+
+            .summary_language_list {
+                list-style-type: disc;
+                margin-left: calculateRem(25px);
+            }
+            .summary_traits_list {
+                margin-top: calculateRem(10px);
+
+                .card-header {
+                    @include decorative-border($c-primary);
+                }
+                .trait-description_container {
+                    border: none;
+                }
+
+                .trait_info_summary-button {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    .accordion_icon_container {
+                        width: calculateRem(24px);
+                        height: calculateRem(24px);
+                        .accordion_icon {
+                            &::before {
+                                font-family: "Font Awesome 5 Free";
+                                font-weight: 900;
+                                content: '\f078';
+                            }
+                        }
+                    }
+                    &:not(.collapsed) {
+                        .accordion_icon_container {
+                            .accordion_icon {
+                                &::before {
+                                    content: '\f077';
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }

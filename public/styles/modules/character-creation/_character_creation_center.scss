@@ -176,5 +176,51 @@
     padding: calculateRem(10px);
     background-color: $c-color-2;
     color: $c-color-1;
-    font-family: 'Vecna Bold';
+    font-family: "Vecna Bold";
+}
+
+.creation-center_form_action-button {
+    width: 100%;
+    height: auto;
+    padding: calculateRem(20px);
+    display: flex;
+    justify-content: center;
+
+    .action-button_container {
+        background-color: $c-primary;
+        border-color: $c-primary;
+        color: #fff;
+        &:hover {
+            background-color: $c-color-1;
+            color: #fff;
+        }
+        &:active {
+            background-color: $c-color-3;
+        }
+    }
+}
+
+.summary_modal {
+    .modal-content {
+        @include decorative-border($c-primary);
+        background-color: $c-secondary;
+        .modal-header {
+            font-size: $font-size-md-xxl;
+            color: $c-primary;
+            border: none;
+        }
+        .modal-body {
+            .row {
+                margin: calculateRem(8px) 0;
+            }
+            h5 {
+                font-size: $font-size-md-xl;
+                color: $c-color-3;
+            }
+            p {
+                font-size: $font-size-md;
+                color: $c-color-1;
+            }
+        }
+    }
 }

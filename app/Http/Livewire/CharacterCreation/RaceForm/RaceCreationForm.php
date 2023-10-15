@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire\CharacterCreation\RaceForm;
 
+use Illuminate\Support\Arr;
+use Illuminate\Validation\ValidationException;
 use Livewire\Component;
 
 class RaceCreationForm extends Component
@@ -24,20 +26,35 @@ class RaceCreationForm extends Component
     public $trait_description;
     public $traits = [];
 
-    public $error_message;
-
     public function addLanguage()
     {
-        if (!is_null($this->language_input)) {
-            if (strlen($this->language_input) > 4) {
-                $this->languages[] = $this->language_input;
-
-                $this->reset('language_input', 'error_message');
-            } else {
-                $this->error_message = 'El lenguaje debe tener minimo 5 caracteres';
-            }
-        } else {
-            $this->error_message = 'El lenguaje no puede estar vacio';
+        try {
+            $this->validateOnly(
+                'language_input',
+                [
+                    'language_input' => 'filled|min:4|alpha:ascii'
+                ],
+                [
+                    'filled' => 'El campo :attribute esta vacio',
+                    'min' => 'El campo :attribute debe tener minimo 4 caracteres',
+                    'alpha' => 'El campo :attribute solo puede tener caracteres alfabeticos'
+                ],
+                [
+                    'language_input' => 'Idioma'
+                ]
+            );
+            $this->languages[] = $this->language_input;
+            $this->reset('language_input');
+        } catch (ValidationException $e) {
+            $errors = $e->errors();
+            $err_values = data_get($errors, 'language_input', 0);
+            $this->dispatchBrowserEvent('alertError', [
+                "title" => "Errores de validacion",
+                "text" => $err_values,
+                "icon" => "error",
+                "iconColor" => "red"
+            ]);
+            throw $e;
         }
     }
 
@@ -48,9 +65,39 @@ class RaceCreationForm extends Component
 
     public function addTrait()
     {
-        array_push($this->traits, ['title' => $this->trait_title, 'description' => $this->trait_description]);
-
-        $this->reset('trait_title', 'trait_description');
+        try {
+            $this->validate(
+                [
+                    'trait_title' => 'filled|min:4|alpha_num:ascii',
+                    'trait_description' => 'filled|min:8'
+                ],
+                [
+                    'trait_title.filled' => 'El campo :attribute esta vacio',
+                    'trait_title.min' => 'El campo :attribute debe tener minimo 4 caracteres',
+                    'trait_title.alpha_num' => 'El campo :attribute solo puede tener caracteres alfanumericos',
+                    'trait_description.filled' => 'El campo :attribute esta vacio',
+                    'trait_description.min' => 'El campo :attribute debe tener minimo 8 caracteres'
+                ],
+                [
+                    'trait_title' => 'Titulo de Rasgo',
+                    'trait_description' => 'Descripcion'
+                ]
+            );
+            array_push($this->traits, ['title' => $this->trait_title, 'description' => $this->trait_description]);
+            $this->reset('trait_title', 'trait_description');
+        } catch (ValidationException $e) {
+            $errors = $e->errors();
+            $title_errors = data_get($errors, 'trait_title', 0);
+            $description_errors = data_get($errors, 'trait_description', 0);
+            $err_values = array_merge($title_errors, $description_errors);
+            $this->dispatchBrowserEvent('alertError', [
+                "title" => "Errores de validacion",
+                "text" => $err_values,
+                "icon" => "error",
+                "iconColor" => "red"
+            ]);
+            throw $e;
+        }
     }
 
     public function removeTrait($index)
@@ -60,19 +107,51 @@ class RaceCreationForm extends Component
 
     public function setRaceData()
     {
-        $scores = $this->setScoreIncreases();
-        $race_chars_array = $this->setRaceChars();
-        $race = [];
-        array_push(
-            $race,
-            [
-                "name" => $this->race_name,
-                "description" => $this->race_description,
-                "scores" => $scores,
-                "race_chars" => $race_chars_array
-            ]
-        );
-        
+        try {
+            $this->validate(
+                [
+                    'race_name' => 'required|min:4|alpha:ascii',
+                    'race_size' => 'required',
+                    'race_speed' => 'required',
+                ],
+                [
+                    'race_name.required' => 'El campo :attribute esta vacio',
+                    'race_size.required' => 'El campo :attribute esta vacio',
+                    'race_speed.required' => 'El campo :attribute esta vacio',
+                    'race_name.min' => 'El campo :attribute debe tener minimo 4 caracteres',
+                    'race_name.alpha' => 'El campo :attribute solo puede tener caracteres alfabeticos',
+                ],
+                [
+                    'race_name' => 'Nombre de Raza',
+                    'race_size' => 'Tamaño',
+                    'race_speed' => 'Velocidad',
+                    'race_fly_speed' => 'Vel. Vuelo',
+                    'race_swim_speed' => 'Vel. Nado'
+                ]
+            );
+            $scores = $this->setScoreIncreases();
+            $race_chars_array = $this->setRaceChars();
+            $race = [];
+            array_push(
+                $race,
+                [
+                    "name" => $this->race_name,
+                    "description" => $this->race_description,
+                    "scores" => $scores,
+                    "race_chars" => $race_chars_array
+                ]
+            );
+        } catch (ValidationException $e) {
+            $errors = $e->errors();
+            $err_values = Arr::collapse($errors);
+            $this->dispatchBrowserEvent('alertError', [
+                "title" => "Errores de validacion",
+                "text" => $err_values,
+                "icon" => "error",
+                "iconColor" => "red"
+            ]);
+            throw $e;
+        }
     }
 
     public function setScoreIncreases()
@@ -93,6 +172,7 @@ class RaceCreationForm extends Component
         );
         return $scores_array;
     }
+
     public function setRaceChars()
     {
         $race_chars = [];
@@ -109,6 +189,7 @@ class RaceCreationForm extends Component
         );
         return $race_chars;
     }
+
 
 
     public function render()

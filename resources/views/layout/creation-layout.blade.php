@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{ asset('/assets/icons/fontawesome-free/css/all.min.css') }}">
     <!-- Styles -->
     <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @vite(['resources/css/app.scss', 'resources/js/app.js'])
 
     @livewireStyles
@@ -84,6 +85,8 @@
     </div>
 
     @livewireScripts
+    
+    @stack('scripts')
 </body>
 
 </html>

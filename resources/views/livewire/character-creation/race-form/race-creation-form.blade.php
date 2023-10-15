@@ -6,9 +6,6 @@
                     <h1 class="creation-center_form_title">Agregar Raza</h1>
                 </div>
                 <div class="card-body">
-                    @if ($error_message)
-                        {{ $error_message }}
-                    @endif
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -354,7 +351,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-info" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-save-race">Guardar</button>
+                    <button type="button" class="btn btn-save-race" wire:click='setRaceData()'>Guardar</button>
                 </div>
             </div>
         </div>

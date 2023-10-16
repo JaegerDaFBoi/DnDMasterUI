@@ -18,4 +18,4 @@ Route::get('/', function () {
 });
 Route::get('/character-workshop', function () {
     return view('character-creation.character-creation-main');
-});
+})->name('character-workshop');

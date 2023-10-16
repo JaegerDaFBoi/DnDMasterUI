@@ -68,13 +68,12 @@ class RaceCreationForm extends Component
         try {
             $this->validate(
                 [
-                    'trait_title' => 'filled|min:4|alpha_num:ascii',
+                    'trait_title' => 'filled|min:4',
                     'trait_description' => 'filled|min:8'
                 ],
                 [
                     'trait_title.filled' => 'El campo :attribute esta vacio',
                     'trait_title.min' => 'El campo :attribute debe tener minimo 4 caracteres',
-                    'trait_title.alpha_num' => 'El campo :attribute solo puede tener caracteres alfanumericos',
                     'trait_description.filled' => 'El campo :attribute esta vacio',
                     'trait_description.min' => 'El campo :attribute debe tener minimo 8 caracteres'
                 ],
@@ -88,7 +87,7 @@ class RaceCreationForm extends Component
         } catch (ValidationException $e) {
             $errors = $e->errors();
             $title_errors = data_get($errors, 'trait_title', 0);
-            $description_errors = data_get($errors, 'trait_description', 0);
+            $description_errors = data_get($errors, 'trait_description', []);
             $err_values = array_merge($title_errors, $description_errors);
             $this->dispatchBrowserEvent('alertError', [
                 "title" => "Errores de validacion",
@@ -129,18 +128,31 @@ class RaceCreationForm extends Component
                     'race_swim_speed' => 'Vel. Nado'
                 ]
             );
-            $scores = $this->setScoreIncreases();
-            $race_chars_array = $this->setRaceChars();
             $race = [];
             array_push(
                 $race,
                 [
                     "name" => $this->race_name,
                     "description" => $this->race_description,
-                    "scores" => $scores,
-                    "race_chars" => $race_chars_array
+                    "increases" => [
+                        'str_inc' => $this->str,
+                        'dex_inc' => $this->dex,
+                        'con_inc' => $this->con,
+                        'int_inc' => $this->int,
+                        'wis_inc' => $this->wis,
+                        'cha_inc' => $this->cha
+                    ],
+                    "characteristics" => [
+                        "size" => $this->race_size,
+                        "speed" => $this->race_speed,
+                        "fly_speed" => $this->race_fly_speed,
+                        "swim_speed" => $this->race_swim_speed,
+                        "traits" => $this->traits,
+                        "languages" => $this->languages,
+                    ]
                 ]
             );
+            $this->emit('sendRaceDataToParent', $race);
         } catch (ValidationException $e) {
             $errors = $e->errors();
             $err_values = Arr::collapse($errors);
@@ -153,44 +165,6 @@ class RaceCreationForm extends Component
             throw $e;
         }
     }
-
-    public function setScoreIncreases()
-    {
-        $scores_array = [];
-        array_push(
-            $scores_array,
-            [
-                'increases' => [
-                    'str' => $this->str,
-                    'dex' => $this->dex,
-                    'con' => $this->con,
-                    'int' => $this->int,
-                    'wis' => $this->wis,
-                    'cha' => $this->cha
-                ]
-            ]
-        );
-        return $scores_array;
-    }
-
-    public function setRaceChars()
-    {
-        $race_chars = [];
-        array_push(
-            $race_chars,
-            [
-                "size" => $this->race_size,
-                "speed" => $this->race_speed,
-                "fly_speed" => $this->race_fly_speed,
-                "swim_speed" => $this->race_swim_speed,
-                "traits" => $this->traits,
-                "languages" => $this->languages,
-            ]
-        );
-        return $race_chars;
-    }
-
-
 
     public function render()
     {

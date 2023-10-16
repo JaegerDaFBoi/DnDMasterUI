@@ -18,10 +18,10 @@
             @default
         @endswitch
     </div>
-    
+
     @push('scripts')
         <script>
-            window.addEventListener('alertError', function(e){
+            window.addEventListener('alertError', function(e) {
                 let html = '<ul>';
                 let array = e.detail.text;
                 for (var index = 0; index < array.length; index++) {
@@ -44,5 +44,26 @@
                 console.log(e.detail.text);
             });
         </script>
+        @if (session()->has('message'))
+            <script type="text/javascript">
+            function message() {
+                Swal.fire({
+                    title: 'Proceso finalizado',
+                    text: "{{ session()->get('message') }}",
+                    icon: 'success',
+                    iconColor: 'green',
+                    background: '#F7CE65',
+                    color: '#26394D',
+                    timer: 6000,
+                    toast: true,
+                    position: 'top-right',
+                    timerProgressBar: true,
+                    showConfirmButton: false
+                });
+            }
+            console.log('Executed');
+            window.onload = message; 
+            </script>
+        @endif
     @endpush
 </div>
